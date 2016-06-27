@@ -4,7 +4,7 @@ import shlex, subprocess
 SCRIPT_NAME    = "pyshnotify"
 SCRIPT_AUTHOR  = "Tony Blyler <tony@blyler.cc>"
 SCRIPT_VERSION = "1.0"
-SCRIPT_LICENSE = "GPL3"
+SCRIPT_LICENSE = "MPL2"
 SCRIPT_DESC    = "Execute command from highlights and private messages"
 
 def on_msg(data, buffer, timestamp, tags, displayed, highlight, sender, message):
@@ -20,7 +20,7 @@ def on_msg(data, buffer, timestamp, tags, displayed, highlight, sender, message)
         stdout, stderr = proc.communicate()
 
         if proc.returncode != 0:
-            w.prnt("", weechat.prefix("error") + " Unable to run command: '" + cmd + "' stdout: '" + stdout + "' stderr: '" + stderr + "'")
+            w.prnt("", w.prefix("error") + " Unable to run command: '" + cmd + "' stdout: '" + stdout + "' stderr: '" + stderr + "'")
             return w.WEECHAT_RC_ERROR
 
     return w.WEECHAT_RC_OK
